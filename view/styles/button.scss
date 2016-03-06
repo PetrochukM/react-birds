@@ -1,0 +1,62 @@
+@import "colors";
+
+.btn,
+button {
+    margin-top: .5375em;
+    margin-bottom: .1875em;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &.ghst {
+        color: $whte;
+        border: 1px solid $whte;
+        border-radius: 2px;
+
+        &:hover {
+            color: $blck;
+            background-color: $whte;
+        }
+    }
+
+    &.smple {
+        position: relative;
+        display: inline-block;
+        padding: .5375rem 1.3125rem;
+        color: $gry7;
+        border: 0;
+        border-radius: 2px;
+        outline: 0;
+        background-color: $gry1;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+        &:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            content: " ";
+            background-color: transparent;
+        }
+
+        &:hover {
+            &:before {
+                background-color: rgba(30, 30, 30, 0.1);
+            }
+        }
+    }
+
+    //Each loop to create classes
+    @each $type in $colors {
+        &.b-#{nth($type, 1)} {
+          background-color: #{nth($type, 2)};
+        }
+        
+        &.#{nth($type, 1)} {
+          fill: #{nth($type, 2)};
+          color: #{nth($type, 2)};
+        }
+    }
+}

@@ -1,0 +1,9 @@
+webpack.config.js
+.stylelint.config.js
+.eslintrc
+.eslintignore
+.babelrc
+view
+component
+__tests__
+.gitignore
