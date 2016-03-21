@@ -11,7 +11,7 @@ export default class BirdsView extends React.Component {
 
 	render() {
 		return ( 
-			<canvas className = "birds" ref = "canvas" > < /canvas>
+			<canvas className="birds" ref="canvas"> </canvas>
 		);
 	}
 }

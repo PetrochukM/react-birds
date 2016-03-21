@@ -1,6 +1,6 @@
 {
   "name": "react-birds",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Birds",
   "main": "build/Component.js",
   "scripts": {
@@ -75,7 +75,6 @@
   },
   "dependencies": {
     "react": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "three": "^0.75.0"
+    "react-dom": "^0.14.7"
   }
 }
