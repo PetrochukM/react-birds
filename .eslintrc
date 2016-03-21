@@ -27,5 +27,8 @@
         "react/no-unknown-property": 1,
         "react/react-in-jsx-scope": 1,
         "react/self-closing-comp": 1
+    },
+    "globals": {
+        "THREE": true
     }
 }

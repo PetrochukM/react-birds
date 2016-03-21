@@ -1,14 +1,17 @@
 'use strict';
 
 import React from 'react';
+import Birds from 'lib/birds.js';
 import './style.scss';
 
-const Component = () => {
-	return (
-		<div className="component">
-			Hello World
-		</div>
-	);
-}
+export default class BirdsView extends React.Component {
+	componentDidMount() {
+		Birds.init(React.findDOMNode(this.refs.canvas));
+	}
 
-export default Component;
+	render() {
+		return ( 
+			<canvas className = "birds" ref = "canvas" > < /canvas>
+		);
+	}
+}

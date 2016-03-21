@@ -1,3 +1,5 @@
-@import "default";
-@import "animations";
-@import "button";
+@import "reset";
+
+html, body {
+	overflow: hidden;
+}

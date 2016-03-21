@@ -17,6 +17,7 @@ PATHS.root = path.join(__dirname);
 PATHS.build = path.join(PATHS.root, 'build'); // DO NOT CHANGE ACCIDENTLY. EVERYTHING THING HERE GETS DELETED RECURSIVELY DURING BUILD.
 PATHS.view = path.join(PATHS.root, 'view');
 PATHS.component = path.join(PATHS.root, 'component');
+PATHS.lib = path.join(PATHS.root, 'lib');
 PATHS.styles = path.join(PATHS.view, 'styles');
 
 process.env.BABEL_ENV = TARGET;
@@ -26,7 +27,8 @@ const common = {
         extensions: ['', '.js', '.jsx'],
         alias: {
             'styles': PATHS.styles,
-            'component': PATHS.component
+            'component': PATHS.component,
+            'lib': PATHS.lib
         }
     },
     module: {
@@ -56,6 +58,14 @@ const common = {
             loader: 'file-loader'
         }]
     },
+    externals: {
+        three: {
+            root: 'Three',
+            commonjs: 'three',
+            commonjs2: 'three',
+            amd: 'three'
+        }
+    },
     postcss: function() {
         return [autoprefixer, precss];
     }
@@ -75,11 +85,11 @@ if (TARGET === 'start' || !TARGET) {
             loaders: [{
                 test: /\.(sass|scss)$/,
                 loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader?sourceMap'],
-                include: [PATHS.view, PATHS.component]
+                include: [PATHS.view, PATHS.component, PATHS.lib]
             }, {
                 test: /\.jsx?$/,
                 loaders: ['react-hot', 'babel?cacheDirectory'],
-                include: [PATHS.view, PATHS.component]
+                include: [PATHS.view, PATHS.component, PATHS.lib]
             }]
         },
         devtool: 'eval-source-map',
@@ -134,11 +144,11 @@ if (TARGET === 'build' || TARGET === 'stats') {
             loaders: [{
                 test: /\.(sass|scss)$/,
                 loaders: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-                include: [PATHS.view, PATHS.component]
+                include: [PATHS.view, PATHS.component, PATHS.lib]
             }, {
                 test: /\.jsx?$/,
                 loaders: ['babel'],
-                include: [PATHS.view, PATHS.component]
+                include: [PATHS.view, PATHS.component, PATHS.lib]
             }]
         },
         externals: {
